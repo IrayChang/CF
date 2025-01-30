@@ -48,14 +48,14 @@
 			path = "binomial tree";
 			sourceTree = "<group>";
 		};
-		26DA494B2D4C368C00821341 /* Black - scholes */ = {
+		26DA494B2D4C368C00821341 /* Black scholes PDE */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Black - scholes";
+			path = "Black scholes PDE";
 			sourceTree = "<group>";
 		};
-		26DA49562D4C36DD00821341 /* Monte Carlo */ = {
+		26DA49562D4C36DD00821341 /* Monte carlo simulation */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Monte Carlo";
+			path = "Monte carlo simulation";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -89,8 +89,8 @@
 			isa = PBXGroup;
 			children = (
 				26DA49312D4C355100821341 /* binomial tree */,
-				26DA494B2D4C368C00821341 /* Black - scholes */,
-				26DA49562D4C36DD00821341 /* Monte Carlo */,
+				26DA494B2D4C368C00821341 /* Black scholes PDE */,
+				26DA49562D4C36DD00821341 /* Monte carlo simulation */,
 				26DA49302D4C355100821341 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -143,7 +143,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				26DA494B2D4C368C00821341 /* Black - scholes */,
+				26DA494B2D4C368C00821341 /* Black scholes PDE */,
 			);
 			name = "Black - scholes";
 			packageProductDependencies = (
@@ -165,7 +165,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				26DA49562D4C36DD00821341 /* Monte Carlo */,
+				26DA49562D4C36DD00821341 /* Monte carlo simulation */,
 			);
 			name = "Monte Carlo";
 			packageProductDependencies = (
