@@ -38,14 +38,34 @@ double expectedDefaultTime_refined(double lambda, int n){
     int i;
     double u, tauTimeslambda, summation = 0;
     for(i=1; i<=n; i++){
-        u = (double) rand()/RAND_MAX; // why use uniform distribution?
+        u = (double) rand()/RAND_MAX;
         if(u == 0)
             u = 0.0000001;
         tauTimeslambda = -log(u); // tau = -ln(1-U) / lambda
         summation += tauTimeslambda;
     }
-    
     return summation / lambda / n;
+}
+
+void SensitivityAnalysis()
+{
+    int i, n = 1000;
+    double McVal = 0, TheoVal = 0, prevMcVal, prevTheoVal;
+    double lambda = 0.00001;
+    for (i = 1 ; i < 5; i++)
+    {
+        prevMcVal = McVal;
+        prevTheoVal = TheoVal;
+        srand(5);
+        McVal = expectedDefaultTime_refined(lambda, n);
+        TheoVal = 1/lambda; //Expectation of hazard rate
+        lambda *= 10;
+        if (i != 0)
+        {
+            cout << "The empirical ratio is " << McVal / prevMcVal << endl;
+            cout << "The theo ratio is " << TheoVal / prevTheoVal << endl;
+        }
+    }
 }
 
 int main(){
