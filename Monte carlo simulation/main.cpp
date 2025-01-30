@@ -39,9 +39,9 @@ double expectedDefaultTime_refined(double lambda, int n){
     double u, tauTimeslambda, summation = 0;
     for(i=1; i<=n; i++){
         u = (double) rand()/RAND_MAX; // why use uniform distribution?
-        if(u == 1)
-            u = 0.99999;
-        tauTimeslambda = -log(1-u); // tau = -ln(1-U) / lambda
+        if(u == 0)
+            u = 0.0000001;
+        tauTimeslambda = -log(u); // tau = -ln(1-U) / lambda
         summation += tauTimeslambda;
     }
     
