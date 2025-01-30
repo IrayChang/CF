@@ -25,11 +25,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		26DA49532D4C36DD00821341 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		26DA492F2D4C355100821341 /* computational finance */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "computational finance"; sourceTree = BUILT_PRODUCTS_DIR; };
 		26DA494A2D4C368C00821341 /* Black - scholes */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Black - scholes"; sourceTree = BUILT_PRODUCTS_DIR; };
+		26DA49552D4C36DD00821341 /* Monte Carlo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Monte Carlo"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -41,6 +51,11 @@
 		26DA494B2D4C368C00821341 /* Black - scholes */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "Black - scholes";
+			sourceTree = "<group>";
+		};
+		26DA49562D4C36DD00821341 /* Monte Carlo */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Monte Carlo";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -60,6 +75,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		26DA49522D4C36DD00821341 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -68,6 +90,7 @@
 			children = (
 				26DA49312D4C355100821341 /* binomial tree */,
 				26DA494B2D4C368C00821341 /* Black - scholes */,
+				26DA49562D4C36DD00821341 /* Monte Carlo */,
 				26DA49302D4C355100821341 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -77,6 +100,7 @@
 			children = (
 				26DA492F2D4C355100821341 /* computational finance */,
 				26DA494A2D4C368C00821341 /* Black - scholes */,
+				26DA49552D4C36DD00821341 /* Monte Carlo */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -128,6 +152,28 @@
 			productReference = 26DA494A2D4C368C00821341 /* Black - scholes */;
 			productType = "com.apple.product-type.tool";
 		};
+		26DA49542D4C36DD00821341 /* Monte Carlo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 26DA49592D4C36DD00821341 /* Build configuration list for PBXNativeTarget "Monte Carlo" */;
+			buildPhases = (
+				26DA49512D4C36DD00821341 /* Sources */,
+				26DA49522D4C36DD00821341 /* Frameworks */,
+				26DA49532D4C36DD00821341 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				26DA49562D4C36DD00821341 /* Monte Carlo */,
+			);
+			name = "Monte Carlo";
+			packageProductDependencies = (
+			);
+			productName = "Monte Carlo";
+			productReference = 26DA49552D4C36DD00821341 /* Monte Carlo */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -141,6 +187,9 @@
 						CreatedOnToolsVersion = 16.2;
 					};
 					26DA49492D4C368C00821341 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					26DA49542D4C36DD00821341 = {
 						CreatedOnToolsVersion = 16.2;
 					};
 				};
@@ -161,6 +210,7 @@
 			targets = (
 				26DA492E2D4C355100821341 /* computational finance */,
 				26DA49492D4C368C00821341 /* Black - scholes */,
+				26DA49542D4C36DD00821341 /* Monte Carlo */,
 			);
 		};
 /* End PBXProject section */
@@ -174,6 +224,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		26DA49462D4C368C00821341 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		26DA49512D4C36DD00821341 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -330,6 +387,22 @@
 			};
 			name = Release;
 		};
+		26DA495A2D4C36DD00821341 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		26DA495B2D4C36DD00821341 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -356,6 +429,15 @@
 			buildConfigurations = (
 				26DA494E2D4C368C00821341 /* Debug */,
 				26DA494F2D4C368C00821341 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		26DA49592D4C36DD00821341 /* Build configuration list for PBXNativeTarget "Monte Carlo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26DA495A2D4C36DD00821341 /* Debug */,
+				26DA495B2D4C36DD00821341 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
