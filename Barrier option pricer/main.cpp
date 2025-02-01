@@ -41,6 +41,47 @@ double BarrierOptionPricer (double s0, double k, double T, double r, double vol,
     return exp(-r*T) * forPayoff / n ; //risk neutral growth factor
 }
 
+double Phi(double x) //Numeric recipe for the N(0,1) CDF
+{
+    int neg = (x < 0);
+    if (neg) x *= -1;
+    double k(1 / (1 + 0.2316419 * x));
+    double y = ((((1.330274429 * k - 1.821255978) * k + 1.781477937) * k - 0.356563782) * k + 0.319381530) * k;
+    y = 1.0 - 0.398942280401 * exp(-0.5 * x * x) * y;
+    return (1 - neg) * y + neg * (1 - y);
+}
+
+double PhiInverse(double p)
+{
+    double a, b, m, fOfm, diff;
+    int i; const int CAP = 100; //'cap' on the num of iterations
+    const double TOL = 0.0001; //basis point, the allowable range of error
+    a = -10; //left boundary
+    b = 10; //right boundary
+    i = 0; //iterations
+    
+    do // use binary search method to approximate the probability
+    {
+        m = 0.5 * (a + b);
+        fOfm = Phi(m); //CDF value
+        diff = fOfm - p;
+        
+        if (diff<0) //(fOfm < p)
+            a = m;
+        else
+            b = m;
+        diff = fabs(diff); // absolute value of diff
+        i++;//You can write it anywhere within this block/loop!
+ 
+    } while (diff > TOL && i <= CAP);
+    
+    if (i >= CAP)
+        cout << "CAP has been reached" << endl;
+    cout << "Btw, it took " << i << " iterations." << endl;
+    return m;
+}
+
+
 int main()
 {
     cout << BarrierOptionPricer(100, 110*exp(0.05*1), 1, 0.05, 0, 90, 100) << endl;
