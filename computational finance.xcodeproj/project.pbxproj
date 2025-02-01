@@ -34,12 +34,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		26DA495E2D4E44CE00821341 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		26DA492F2D4C355100821341 /* computational finance */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "computational finance"; sourceTree = BUILT_PRODUCTS_DIR; };
 		26DA494A2D4C368C00821341 /* Black - scholes */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Black - scholes"; sourceTree = BUILT_PRODUCTS_DIR; };
 		26DA49552D4C36DD00821341 /* Monte Carlo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Monte Carlo"; sourceTree = BUILT_PRODUCTS_DIR; };
+		26DA49602D4E44CE00821341 /* Barrier option pricer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Barrier option pricer"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -56,6 +66,11 @@
 		26DA49562D4C36DD00821341 /* Monte carlo simulation */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "Monte carlo simulation";
+			sourceTree = "<group>";
+		};
+		26DA49612D4E44CF00821341 /* Barrier option pricer */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Barrier option pricer";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -82,6 +97,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		26DA495D2D4E44CE00821341 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -91,6 +113,7 @@
 				26DA49312D4C355100821341 /* binomial tree */,
 				26DA494B2D4C368C00821341 /* Black scholes PDE */,
 				26DA49562D4C36DD00821341 /* Monte carlo simulation */,
+				26DA49612D4E44CF00821341 /* Barrier option pricer */,
 				26DA49302D4C355100821341 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -101,6 +124,7 @@
 				26DA492F2D4C355100821341 /* computational finance */,
 				26DA494A2D4C368C00821341 /* Black - scholes */,
 				26DA49552D4C36DD00821341 /* Monte Carlo */,
+				26DA49602D4E44CE00821341 /* Barrier option pricer */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -174,6 +198,28 @@
 			productReference = 26DA49552D4C36DD00821341 /* Monte Carlo */;
 			productType = "com.apple.product-type.tool";
 		};
+		26DA495F2D4E44CE00821341 /* Barrier option pricer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 26DA49642D4E44CF00821341 /* Build configuration list for PBXNativeTarget "Barrier option pricer" */;
+			buildPhases = (
+				26DA495C2D4E44CE00821341 /* Sources */,
+				26DA495D2D4E44CE00821341 /* Frameworks */,
+				26DA495E2D4E44CE00821341 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				26DA49612D4E44CF00821341 /* Barrier option pricer */,
+			);
+			name = "Barrier option pricer";
+			packageProductDependencies = (
+			);
+			productName = "Barrier option pricer";
+			productReference = 26DA49602D4E44CE00821341 /* Barrier option pricer */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -190,6 +236,9 @@
 						CreatedOnToolsVersion = 16.2;
 					};
 					26DA49542D4C36DD00821341 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					26DA495F2D4E44CE00821341 = {
 						CreatedOnToolsVersion = 16.2;
 					};
 				};
@@ -211,6 +260,7 @@
 				26DA492E2D4C355100821341 /* computational finance */,
 				26DA49492D4C368C00821341 /* Black - scholes */,
 				26DA49542D4C36DD00821341 /* Monte Carlo */,
+				26DA495F2D4E44CE00821341 /* Barrier option pricer */,
 			);
 		};
 /* End PBXProject section */
@@ -231,6 +281,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		26DA49512D4C36DD00821341 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		26DA495C2D4E44CE00821341 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -403,6 +460,22 @@
 			};
 			name = Release;
 		};
+		26DA49652D4E44CF00821341 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		26DA49662D4E44CF00821341 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -438,6 +511,15 @@
 			buildConfigurations = (
 				26DA495A2D4C36DD00821341 /* Debug */,
 				26DA495B2D4C36DD00821341 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		26DA49642D4E44CF00821341 /* Build configuration list for PBXNativeTarget "Barrier option pricer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26DA49652D4E44CF00821341 /* Debug */,
+				26DA49662D4E44CF00821341 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
