@@ -10,9 +10,24 @@ double maxi(double x, double y)
 
 /* gBM
  Bullet formula: gBM: S_t = S_0 * exp((r- 0.5 * vol^2)*t + vol * W_t) where W_t ~ N(0,t)
+ Only focuses on now and maturity, no time dependent
+  
  Iterative/recursive formula: S_t2 = S_t1 * exp((r- 0.5 * vol^2)*(t2-t1)) + vol * dWt)
  where dWt ~ N(0,t2-t1).
- Note: (non overlapping) Brownian increments are indepedents! */
+ Observe the process among time path, spliting time into time steps, delta
+ 
+ Note: (non overlapping) Brownian increments are indepedents!
+ Note: Wiener process is a continous formula of random walk, where t_1 - t_0 = 0,
+       it is a stochastic process
+ */
+
+
+/* barrier option
+ Payoff = max(k - St, 0), if I(minSt > B), where I is the indicator function
+ 
+ The stock price, St, follows a Geometric Brownian Motion, gBM
+ 
+ */
 
 
 double BarrierOptionPricer (double s0, double k, double T, double r, double vol, double B, double n)
@@ -25,12 +40,22 @@ double BarrierOptionPricer (double s0, double k, double T, double r, double vol,
     double x = 1;
     double st;
     double forPayoff = 0;
-    for (i = 1; i <= n; i++) // a simulaiton counter
+    double u,z;
+    
+    for (i = 1; i <= n; i++) // a simulaiton counter, i is a index but n is a number
     {
         st = s0; // resetting st back to the spot
-        minSt = s0;
+        minSt = s0; //recursive formula, to check condition in each time step, such as daily or monthly basis
         for (j = 1; j <= m; j++) // a time step counter
         {
+            do
+            {
+                u = (double) rand() / RAND_MAX;
+            } while (u==0| u==1);
+            
+            z = PhiInverse(u);
+            x = z * sqrt(dt);
+            
             st *= exp((r - 0.5 * vol * vol) * dt + vol * x);
             if (st < minSt)
                 minSt = st;
@@ -40,6 +65,21 @@ double BarrierOptionPricer (double s0, double k, double T, double r, double vol,
     }
     return exp(-r*T) * forPayoff / n ; //risk neutral growth factor
 }
+
+/*
+ Phi and PhiInverse:
+ In the gBM assumption, dW_t ~ N(0, dt),
+ to simulate standard normal variables, u ~ U(0, 1)
+ and by inversing the cummulative normal distribution, to obtain standard normal samples for simulating the Wiener process.
+ 
+ 
+ Note: standardization, z = (x - u) / s.d, where z ~ N(0, 1)
+       Reverse process, x = z * s.d,
+       Then, we obtain a normally distributed variable
+ 
+       If u ~ uniform distribution, we can trasform it into standard normal distribution
+ */
+
 
 double Phi(double x) //Numeric recipe for the N(0,1) CDF
 {
