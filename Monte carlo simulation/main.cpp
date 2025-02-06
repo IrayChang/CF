@@ -52,11 +52,11 @@ void SensitivityAnalysis()
     int i, n = 1000;
     double McVal = 0, TheoVal = 0, prevMcVal, prevTheoVal;
     double lambda = 0.00001;
-    for (i = 1 ; i < 5; i++)
+    for (i = 0 ; i < 5; i++)
     {
         prevMcVal = McVal;
         prevTheoVal = TheoVal;
-        srand(5);
+        srand(5); //to elimate cross-sample noise
         McVal = expectedDefaultTime_refined(lambda, n);
         TheoVal = 1/lambda; //Expectation of hazard rate
         lambda *= 10;
@@ -69,11 +69,13 @@ void SensitivityAnalysis()
 }
 
 int main(){
+    SensitivityAnalysis();
+    srand(5);
+    double lamda = 0.01/(1-0.04);
+    cout << "Expected default time is " << expectedDefaultTime(lamda, 1000) << endl;
     unsigned seed;
     seed = (unsigned)time(NULL);
     srand(seed);
-    double lamda = 0.01/(1-0.04);
-    cout << "Expected default time is " << expectedDefaultTime(lamda, 1000) << endl;
     cout << "Expected default time is " << expectedDefaultTime_refined(lamda, 1000) << endl;
     return 0;
 }
